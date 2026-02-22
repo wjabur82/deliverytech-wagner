@@ -175,14 +175,16 @@ Como a API é protegida por Spring Security, os testes de integração de Contro
 Dica de Desenvolvimento: Antes de realizar um push, sempre execute o "Combo de Qualidade" para garantir que sua alteração não reduziu a cobertura global do projeto para menos de 80%.
 
 
+---
 
 
-
-### Gerenciamento com Docker Compose
+## Gerenciamento com Docker Compose
 O Docker Compose gerencia a API, o banco MySQL e o cache Redis de forma integrada na mesma rede.
 
-Subir o ambiente completo
+### Subir o ambiente completo
 Use este comando para compilar o JAR (ignora erros de Git e trata encoding UTF-8) e subir todos os serviços:
+
+---
 
 Bash
 * #docker-compose up -d --build
@@ -199,7 +201,9 @@ Bash
 ### Monitoramento com Prometheus
 Os arquivos de configuração estão organizados na pasta /prometheus.
 
-Subir Prometheus isoladamente (via Bash/Git Bash)
+---
+
+### Subir Prometheus isoladamente (via Bash/Git Bash)
 Se precisar rodar apenas o container de monitoramento apontando para as regras locais:
 
 Bash
@@ -210,7 +214,7 @@ Bash
   * #-v "$(pwd)/prometheus/alert_rules.yml:/etc/prometheus/alert_rules.yml" \
   * #prom/prometheus
   
-Subir Prometheus isoladamente (via PowerShell)
+### Subir Prometheus isoladamente (via PowerShell)
 PowerShell
 * #docker run -d `
   * #--name delivery-prometheus `
