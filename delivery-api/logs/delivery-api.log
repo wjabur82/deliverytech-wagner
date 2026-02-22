@@ -2728,3 +2728,1283 @@
 2026-02-22 15:23:55.428 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
 2026-02-22 15:23:55.436 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-02-22 15:23:55.566 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-22 15:48:31.505 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-22 15:48:31.763 [restartedMain] INFO  c.d.d.DeliveryApiApplication - Starting DeliveryApiApplication using Java 21.0.9 with PID 26216 (C:\Users\giova\Downloads\TI ARQUITETURA DE SISTEMAS\deliverytech\delivery-api\target\classes started by giova in C:\Users\giova\Downloads\TI ARQUITETURA DE SISTEMAS\deliverytech\delivery-api)
+2026-02-22 15:48:31.763 [restartedMain] DEBUG c.d.d.DeliveryApiApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2026-02-22 15:48:31.764 [restartedMain] INFO  c.d.d.DeliveryApiApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-22 15:48:31.887 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-22 15:48:31.887 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-22 15:48:36.220 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-22 15:48:36.414 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 175 ms. Found 6 JPA repository interfaces.
+2026-02-22 15:48:38.537 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-22 15:48:38.567 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-22 15:48:38.579 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-22 15:48:38.579 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-02-22 15:48:38.724 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-22 15:48:38.725 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6836 ms
+2026-02-22 15:48:39.501 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-22 15:48:39.932 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:deliverydb user=SA
+2026-02-22 15:48:39.934 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-22 15:48:39.954 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:deliverydb'
+2026-02-22 15:48:40.513 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-22 15:48:41.081 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-02-22 15:48:41.282 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-22 15:48:42.828 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-22 15:48:43.114 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-22 15:48:44.871 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-22 15:48:44.892 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists clientes cascade 
+2026-02-22 15:48:44.896 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists itens_pedido cascade 
+2026-02-22 15:48:44.896 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists pedidos cascade 
+2026-02-22 15:48:44.896 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists produtos cascade 
+2026-02-22 15:48:44.897 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists restaurantes cascade 
+2026-02-22 15:48:44.897 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists usuarios cascade 
+2026-02-22 15:48:44.906 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table clientes (
+        ativo boolean not null,
+        data_cadastro timestamp(6),
+        id bigint generated by default as identity,
+        email varchar(255) not null unique,
+        endereco varchar(255),
+        nome varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:48:44.920 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table itens_pedido (
+        preco_unitario numeric(38,2),
+        quantidade integer,
+        subtotal numeric(38,2),
+        id bigint generated by default as identity,
+        pedido_id bigint,
+        produto_id bigint,
+        primary key (id)
+    )
+2026-02-22 15:48:44.923 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table pedidos (
+        taxa_entrega numeric(38,2),
+        valor_total numeric(38,2),
+        cliente_id bigint,
+        data_pedido timestamp(6),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        endereco_entrega varchar(255),
+        numero_pedido varchar(255),
+        status enum ('CANCELADO','CONFIRMADO','ENTREGUE','PENDENTE'),
+        primary key (id)
+    )
+2026-02-22 15:48:44.925 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table produtos (
+        disponivel boolean,
+        preco numeric(38,2),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        categoria varchar(255),
+        descricao varchar(255),
+        nome varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:48:44.926 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table restaurantes (
+        ativo boolean,
+        avaliacao numeric(38,2),
+        taxa_entrega numeric(38,2),
+        id bigint generated by default as identity,
+        categoria varchar(255),
+        endereco varchar(255),
+        nome varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:48:44.928 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table usuarios (
+        ativo boolean,
+        data_criacao timestamp(6),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        email varchar(255) not null unique,
+        nome varchar(255),
+        senha varchar(255) not null,
+        role enum ('ADMIN','CLIENTE','ENTREGADOR','RESTAURANTE'),
+        primary key (id)
+    )
+2026-02-22 15:48:44.930 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists itens_pedido 
+       add constraint FK42mycompce3b7yt3l6ukdwsxy 
+       foreign key (pedido_id) 
+       references pedidos
+2026-02-22 15:48:44.947 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists itens_pedido 
+       add constraint FKxytdlekpdaobqphujy9bmuhl 
+       foreign key (produto_id) 
+       references produtos
+2026-02-22 15:48:44.949 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists pedidos 
+       add constraint FKg7202lk0hwxn04bmdl2thth5b 
+       foreign key (cliente_id) 
+       references clientes
+2026-02-22 15:48:44.952 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists pedidos 
+       add constraint FKf3mf88pcxawf3nt06400qmqn3 
+       foreign key (restaurante_id) 
+       references restaurantes
+2026-02-22 15:48:44.953 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists produtos 
+       add constraint FKsl3jhd8nhd103c5nm6yocnnkx 
+       foreign key (restaurante_id) 
+       references restaurantes
+2026-02-22 15:48:44.959 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-22 15:48:45.962 [restartedMain] DEBUG c.d.d.config.SecurityFilter - Filter 'securityFilter' configured for use
+2026-02-22 15:48:45.964 [restartedMain] DEBUG o.s.w.f.ServerHttpObservationFilter - Filter 'webMvcObservationFilter' configured for use
+2026-02-22 15:48:46.190 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-22 15:48:48.146 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2026-02-22 15:48:49.282 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 49 mappings in 'requestMappingHandlerMapping'
+2026-02-22 15:48:49.703 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-02-22 15:48:50.016 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 5 endpoints beneath base path '/actuator'
+2026-02-22 15:48:50.494 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-02-22 15:48:50.621 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-02-22 15:48:51.371 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-02-22 15:48:51.503 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-22 15:48:51.551 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-22 15:48:51.584 [restartedMain] INFO  c.d.d.DeliveryApiApplication - Started DeliveryApiApplication in 23.105 seconds (process running for 24.851)
+2026-02-22 15:48:51.857 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.ativo 
+    fetch
+        first ? rows only
+2026-02-22 15:48:51.885 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - --- INICIANDO CARGA DE DADOS ---
+2026-02-22 15:48:51.896 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.email=?
+2026-02-22 15:48:51.943 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        clientes
+        (ativo, data_cadastro, email, endereco, nome, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:51.971 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.email=?
+2026-02-22 15:48:51.972 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        clientes
+        (ativo, data_cadastro, email, endereco, nome, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:51.976 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:51.980 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:51.982 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:51.998 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:52.003 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:52.005 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:52.006 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - --- EXECUTANDO CENÁRIOS DE TESTE (CRIAÇÃO DE PEDIDOS) ---
+2026-02-22 15:48:52.011 [restartedMain] WARN  c.d.d.service.PedidoService - [ALERTA-THRESHOLD] Processamento de pedido - Pedido ID null demorou com.deliverytech.delivery_api.model.Pedido@7ea7854cms - Verifique gargalos no DB!
+2026-02-22 15:48:52.014 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        pedidos
+        (cliente_id, data_pedido, endereco_entrega, numero_pedido, restaurante_id, status, taxa_entrega, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:52.027 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - Pedido 1 criado: Número 95EAE2BF, Total R$ 40.9
+2026-02-22 15:48:52.029 [restartedMain] WARN  c.d.d.service.PedidoService - [ALERTA-THRESHOLD] Processamento de pedido - Pedido ID null demorou com.deliverytech.delivery_api.model.Pedido@6f48b763ms - Verifique gargalos no DB!
+2026-02-22 15:48:52.030 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        pedidos
+        (cliente_id, data_pedido, endereco_entrega, numero_pedido, restaurante_id, status, taxa_entrega, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:48:52.031 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - Pedido 2 criado: Número 50BA8637, Total R$ 53.9
+2026-02-22 15:48:52.032 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - --- CARGA E TESTES CONCLUÍDOS COM SUCESSO ---
+2026-02-22 15:49:21.988 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-22 15:49:22.014 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-02-22 15:49:22.015 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected StandardServletMultipartResolver
+2026-02-22 15:49:22.016 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected AcceptHeaderLocaleResolver
+2026-02-22 15:49:22.021 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected FixedThemeResolver
+2026-02-22 15:49:22.058 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@27f4d4b
+2026-02-22 15:49:22.061 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Detected org.springframework.web.servlet.support.SessionFlashMapManager@26ef6c1a
+2026-02-22 15:49:22.069 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2026-02-22 15:49:22.069 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 55 ms
+2026-02-22 15:49:23.116 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/v3/api-docs", parameters={}
+2026-02-22 15:49:23.128 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2026-02-22 15:49:23.132 [http-nio-8080-exec-1] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /v3/api-docs | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:26.007 [http-nio-8080-exec-1] WARN  i.s.v3.core.jackson.ModelResolver - jackson BeanDescription.findJsonValueAccessor not found, this could lead to inaccurate result, please update jackson to 2.9+
+2026-02-22 15:49:26.015 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.deliverytech.delivery_api.exeption.GlobalExceptionHandler#handleGeneralError(Exception)
+2026-02-22 15:49:26.017 [http-nio-8080-exec-1] ERROR c.d.d.e.GlobalExceptionHandler - Erro crítico processando requisição: Handler dispatch failed: java.lang.NoClassDefFoundError: com/deliverytech/delivery_api/dto/response/ApiSucessResponse$ApiSucessResponseBuilder
+jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoClassDefFoundError: com/deliverytech/delivery_api/dto/response/ApiSucessResponse$ApiSucessResponseBuilder
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1104)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.deliverytech.delivery_api.config.CorrelationFilter.doFilter(CorrelationFilter.java:29)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.deliverytech.delivery_api.config.SecurityFilter.doFilterInternal(SecurityFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:113)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoClassDefFoundError: com/deliverytech/delivery_api/dto/response/ApiSucessResponse$ApiSucessResponseBuilder
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678)
+	at com.fasterxml.jackson.databind.util.ClassUtil.getClassMethods(ClassUtil.java:1317)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedMethodCollector._addMemberMethods(AnnotatedMethodCollector.java:115)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedMethodCollector.collect(AnnotatedMethodCollector.java:49)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedMethodCollector.collectMethods(AnnotatedMethodCollector.java:40)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedClass._methods(AnnotatedClass.java:386)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedClass.memberMethods(AnnotatedClass.java:326)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addMethods(POJOPropertiesCollector.java:794)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:480)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:294)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueMethod(POJOPropertiesCollector.java:420)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueMethod(BasicBeanDescription.java:252)
+	at io.swagger.v3.core.jackson.ModelResolver.findJsonValueType(ModelResolver.java:1069)
+	at io.swagger.v3.core.jackson.ModelResolver.resolve(ModelResolver.java:410)
+	at org.springdoc.core.converters.AdditionalModelsConverter.resolve(AdditionalModelsConverter.java:155)
+	at org.springdoc.core.converters.FileSupportConverter.resolve(FileSupportConverter.java:69)
+	at org.springdoc.core.converters.ResponseSupportConverter.resolve(ResponseSupportConverter.java:79)
+	at org.springdoc.core.converters.SchemaPropertyDeprecatingConverter.resolve(SchemaPropertyDeprecatingConverter.java:92)
+	at org.springdoc.core.converters.PolymorphicModelConverter.resolve(PolymorphicModelConverter.java:105)
+	at org.springdoc.core.converters.PageableOpenAPIConverter.resolve(PageableOpenAPIConverter.java:93)
+	at org.springdoc.core.converters.PageOpenAPIConverter.resolve(PageOpenAPIConverter.java:92)
+	at org.springdoc.core.converters.SortOpenAPIConverter.resolve(SortOpenAPIConverter.java:83)
+	at io.swagger.v3.core.converter.ModelConverterContextImpl.resolve(ModelConverterContextImpl.java:97)
+	at org.springdoc.core.converters.ResponseSupportConverter.resolve(ResponseSupportConverter.java:71)
+	at org.springdoc.core.converters.SchemaPropertyDeprecatingConverter.resolve(SchemaPropertyDeprecatingConverter.java:92)
+	at org.springdoc.core.converters.PolymorphicModelConverter.resolve(PolymorphicModelConverter.java:105)
+	at org.springdoc.core.converters.PageableOpenAPIConverter.resolve(PageableOpenAPIConverter.java:93)
+	at org.springdoc.core.converters.PageOpenAPIConverter.resolve(PageOpenAPIConverter.java:92)
+	at org.springdoc.core.converters.SortOpenAPIConverter.resolve(SortOpenAPIConverter.java:83)
+	at io.swagger.v3.core.converter.ModelConverterContextImpl.resolve(ModelConverterContextImpl.java:97)
+	at io.swagger.v3.core.converter.ModelConverters.resolveAsResolvedSchema(ModelConverters.java:158)
+	at org.springdoc.core.utils.SpringDocAnnotationsUtils.extractSchema(SpringDocAnnotationsUtils.java:129)
+	at org.springdoc.core.service.GenericResponseService.calculateSchema(GenericResponseService.java:577)
+	at org.springdoc.core.service.GenericResponseService.buildContent(GenericResponseService.java:536)
+	at org.springdoc.core.service.GenericResponseService.buildContent(GenericResponseService.java:517)
+	at org.springdoc.core.service.GenericResponseService.buildApiResponses(GenericResponseService.java:609)
+	at org.springdoc.core.service.GenericResponseService.buildApiResponses(GenericResponseService.java:457)
+	at org.springdoc.core.service.GenericResponseService.build(GenericResponseService.java:259)
+	at org.springdoc.api.AbstractOpenApiResource.calculatePath(AbstractOpenApiResource.java:499)
+	at org.springdoc.api.AbstractOpenApiResource.calculatePath(AbstractOpenApiResource.java:676)
+	at org.springdoc.webmvc.api.OpenApiResource.lambda$calculatePath$11(OpenApiResource.java:220)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.springdoc.webmvc.api.OpenApiResource.calculatePath(OpenApiResource.java:201)
+	at org.springdoc.webmvc.api.OpenApiResource.lambda$getPaths$2(OpenApiResource.java:171)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.springdoc.webmvc.api.OpenApiResource.getPaths(OpenApiResource.java:150)
+	at org.springdoc.api.AbstractOpenApiResource.getOpenApi(AbstractOpenApiResource.java:353)
+	at org.springdoc.webmvc.api.OpenApiResource.openapiJson(OpenApiResource.java:125)
+	at org.springdoc.webmvc.api.OpenApiWebMvcResource.openapiJson(OpenApiWebMvcResource.java:114)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	... 124 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.deliverytech.delivery_api.dto.response.ApiSucessResponse$ApiSucessResponseBuilder
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:536)
+	at java.base/java.lang.Class.forName(Class.java:515)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 184 common frames omitted
+2026-02-22 15:49:26.165 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/html', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [text/plain, */*, application/json, application/*+json]
+2026-02-22 15:49:26.181 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["Erro interno no servidor de Delivery."]
+2026-02-22 15:49:26.259 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoClassDefFoundError: com/deliverytech/delivery_api/dto/response/ApiSucessResponse$ApiSucessResponseBuilder]
+2026-02-22 15:49:26.288 [http-nio-8080-exec-1] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /v3/api-docs | Status: 500 | Tempo: 3156ms
+2026-02-22 15:49:26.289 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 500 INTERNAL_SERVER_ERROR
+2026-02-22 15:49:28.075 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/v3/api-docs", parameters={}
+2026-02-22 15:49:28.077 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2026-02-22 15:49:28.077 [http-nio-8080-exec-5] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /v3/api-docs | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:28.510 [http-nio-8080-exec-5] WARN  i.s.v3.core.jackson.ModelResolver - jackson BeanDescription.findJsonValueAccessor not found, this could lead to inaccurate result, please update jackson to 2.9+
+2026-02-22 15:49:28.512 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Using @ExceptionHandler com.deliverytech.delivery_api.exeption.GlobalExceptionHandler#handleGeneralError(Exception)
+2026-02-22 15:49:28.512 [http-nio-8080-exec-5] ERROR c.d.d.e.GlobalExceptionHandler - Erro crítico processando requisição: Handler dispatch failed: java.lang.NoClassDefFoundError: com/deliverytech/delivery_api/dto/response/ApiSucessResponse$ApiSucessResponseBuilder
+jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoClassDefFoundError: com/deliverytech/delivery_api/dto/response/ApiSucessResponse$ApiSucessResponseBuilder
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1104)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at com.deliverytech.delivery_api.config.CorrelationFilter.doFilter(CorrelationFilter.java:29)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:479)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:340)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:82)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:128)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at com.deliverytech.delivery_api.config.SecurityFilter.doFilterInternal(SecurityFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:227)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:240)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:323)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:224)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:137)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:230)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:113)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.NoClassDefFoundError: com/deliverytech/delivery_api/dto/response/ApiSucessResponse$ApiSucessResponseBuilder
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3580)
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2678)
+	at com.fasterxml.jackson.databind.util.ClassUtil.getClassMethods(ClassUtil.java:1317)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedMethodCollector._addMemberMethods(AnnotatedMethodCollector.java:115)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedMethodCollector.collect(AnnotatedMethodCollector.java:49)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedMethodCollector.collectMethods(AnnotatedMethodCollector.java:40)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedClass._methods(AnnotatedClass.java:386)
+	at com.fasterxml.jackson.databind.introspect.AnnotatedClass.memberMethods(AnnotatedClass.java:326)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector._addMethods(POJOPropertiesCollector.java:794)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.collectAll(POJOPropertiesCollector.java:480)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueAccessor(POJOPropertiesCollector.java:294)
+	at com.fasterxml.jackson.databind.introspect.POJOPropertiesCollector.getJsonValueMethod(POJOPropertiesCollector.java:420)
+	at com.fasterxml.jackson.databind.introspect.BasicBeanDescription.findJsonValueMethod(BasicBeanDescription.java:252)
+	at io.swagger.v3.core.jackson.ModelResolver.findJsonValueType(ModelResolver.java:1069)
+	at io.swagger.v3.core.jackson.ModelResolver.resolve(ModelResolver.java:410)
+	at org.springdoc.core.converters.AdditionalModelsConverter.resolve(AdditionalModelsConverter.java:155)
+	at org.springdoc.core.converters.FileSupportConverter.resolve(FileSupportConverter.java:69)
+	at org.springdoc.core.converters.ResponseSupportConverter.resolve(ResponseSupportConverter.java:79)
+	at org.springdoc.core.converters.SchemaPropertyDeprecatingConverter.resolve(SchemaPropertyDeprecatingConverter.java:92)
+	at org.springdoc.core.converters.PolymorphicModelConverter.resolve(PolymorphicModelConverter.java:105)
+	at org.springdoc.core.converters.PageableOpenAPIConverter.resolve(PageableOpenAPIConverter.java:93)
+	at org.springdoc.core.converters.PageOpenAPIConverter.resolve(PageOpenAPIConverter.java:92)
+	at org.springdoc.core.converters.SortOpenAPIConverter.resolve(SortOpenAPIConverter.java:83)
+	at io.swagger.v3.core.converter.ModelConverterContextImpl.resolve(ModelConverterContextImpl.java:97)
+	at org.springdoc.core.converters.ResponseSupportConverter.resolve(ResponseSupportConverter.java:71)
+	at org.springdoc.core.converters.SchemaPropertyDeprecatingConverter.resolve(SchemaPropertyDeprecatingConverter.java:92)
+	at org.springdoc.core.converters.PolymorphicModelConverter.resolve(PolymorphicModelConverter.java:105)
+	at org.springdoc.core.converters.PageableOpenAPIConverter.resolve(PageableOpenAPIConverter.java:93)
+	at org.springdoc.core.converters.PageOpenAPIConverter.resolve(PageOpenAPIConverter.java:92)
+	at org.springdoc.core.converters.SortOpenAPIConverter.resolve(SortOpenAPIConverter.java:83)
+	at io.swagger.v3.core.converter.ModelConverterContextImpl.resolve(ModelConverterContextImpl.java:97)
+	at io.swagger.v3.core.converter.ModelConverters.resolveAsResolvedSchema(ModelConverters.java:158)
+	at org.springdoc.core.utils.SpringDocAnnotationsUtils.extractSchema(SpringDocAnnotationsUtils.java:129)
+	at org.springdoc.core.service.GenericResponseService.calculateSchema(GenericResponseService.java:577)
+	at org.springdoc.core.service.GenericResponseService.buildContent(GenericResponseService.java:536)
+	at org.springdoc.core.service.GenericResponseService.buildContent(GenericResponseService.java:517)
+	at org.springdoc.core.service.GenericResponseService.buildApiResponses(GenericResponseService.java:609)
+	at org.springdoc.core.service.GenericResponseService.buildApiResponses(GenericResponseService.java:457)
+	at org.springdoc.core.service.GenericResponseService.build(GenericResponseService.java:259)
+	at org.springdoc.api.AbstractOpenApiResource.calculatePath(AbstractOpenApiResource.java:499)
+	at org.springdoc.api.AbstractOpenApiResource.calculatePath(AbstractOpenApiResource.java:676)
+	at org.springdoc.webmvc.api.OpenApiResource.lambda$calculatePath$11(OpenApiResource.java:220)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.springdoc.webmvc.api.OpenApiResource.calculatePath(OpenApiResource.java:201)
+	at org.springdoc.webmvc.api.OpenApiResource.lambda$getPaths$2(OpenApiResource.java:171)
+	at java.base/java.util.Optional.ifPresent(Optional.java:178)
+	at org.springdoc.webmvc.api.OpenApiResource.getPaths(OpenApiResource.java:150)
+	at org.springdoc.api.AbstractOpenApiResource.getOpenApi(AbstractOpenApiResource.java:353)
+	at org.springdoc.webmvc.api.OpenApiResource.openapiJson(OpenApiResource.java:125)
+	at org.springdoc.webmvc.api.OpenApiWebMvcResource.openapiJson(OpenApiWebMvcResource.java:114)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	... 124 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.deliverytech.delivery_api.dto.response.ApiSucessResponse$ApiSucessResponseBuilder
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:536)
+	at java.base/java.lang.Class.forName(Class.java:515)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 184 common frames omitted
+2026-02-22 15:49:28.526 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Using 'text/plain', given [*/*] and supported [text/plain, */*, application/json, application/*+json]
+2026-02-22 15:49:28.527 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Writing ["Erro interno no servidor de Delivery."]
+2026-02-22 15:49:28.529 [http-nio-8080-exec-5] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [jakarta.servlet.ServletException: Handler dispatch failed: java.lang.NoClassDefFoundError: com/deliverytech/delivery_api/dto/response/ApiSucessResponse$ApiSucessResponseBuilder]
+2026-02-22 15:49:28.529 [http-nio-8080-exec-5] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /v3/api-docs | Status: 500 | Tempo: 452ms
+2026-02-22 15:49:28.529 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 500 INTERNAL_SERVER_ERROR
+2026-02-22 15:49:45.357 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/index.html", parameters={}
+2026-02-22 15:49:45.364 [http-nio-8080-exec-4] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-02-22 15:49:45.392 [http-nio-8080-exec-4] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /swagger-ui/index.html | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:45.729 [http-nio-8080-exec-4] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /swagger-ui/index.html | Status: 200 | Tempo: 338ms
+2026-02-22 15:49:45.731 [http-nio-8080-exec-4] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:45.932 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/swagger-initializer.js", parameters={}
+2026-02-22 15:49:45.935 [http-nio-8080-exec-9] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-02-22 15:49:45.935 [http-nio-8080-exec-9] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /swagger-ui/swagger-initializer.js | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:45.937 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/swagger-ui.css", parameters={}
+2026-02-22 15:49:45.949 [http-nio-8080-exec-3] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-02-22 15:49:45.950 [http-nio-8080-exec-3] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /swagger-ui/swagger-ui.css | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:45.955 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2026-02-22 15:49:45.955 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/index.css", parameters={}
+2026-02-22 15:49:45.965 [http-nio-8080-exec-6] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-02-22 15:49:45.966 [http-nio-8080-exec-6] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /swagger-ui/index.css | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:45.967 [http-nio-8080-exec-7] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-02-22 15:49:45.967 [http-nio-8080-exec-7] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /swagger-ui/swagger-ui-bundle.js | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:45.971 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2026-02-22 15:49:45.974 [http-nio-8080-exec-10] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-02-22 15:49:45.975 [http-nio-8080-exec-10] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /swagger-ui/swagger-ui-standalone-preset.js | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:46.043 [http-nio-8080-exec-9] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /swagger-ui/swagger-initializer.js | Status: 200 | Tempo: 108ms
+2026-02-22 15:49:46.044 [http-nio-8080-exec-9] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:46.058 [http-nio-8080-exec-10] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /swagger-ui/swagger-ui-standalone-preset.js | Status: 200 | Tempo: 83ms
+2026-02-22 15:49:46.071 [http-nio-8080-exec-6] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /swagger-ui/index.css | Status: 200 | Tempo: 105ms
+2026-02-22 15:49:46.077 [http-nio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:46.075 [http-nio-8080-exec-10] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:46.091 [http-nio-8080-exec-3] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /swagger-ui/swagger-ui.css | Status: 200 | Tempo: 142ms
+2026-02-22 15:49:46.094 [http-nio-8080-exec-3] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:46.171 [http-nio-8080-exec-7] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /swagger-ui/swagger-ui-bundle.js | Status: 200 | Tempo: 204ms
+2026-02-22 15:49:46.181 [http-nio-8080-exec-7] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:46.704 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/favicon-32x32.png", parameters={}
+2026-02-22 15:49:46.709 [http-nio-8080-exec-8] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-02-22 15:49:46.709 [http-nio-8080-exec-8] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /swagger-ui/favicon-32x32.png | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:46.769 [http-nio-8080-exec-8] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /swagger-ui/favicon-32x32.png | Status: 200 | Tempo: 60ms
+2026-02-22 15:49:46.771 [http-nio-8080-exec-8] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:46.978 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - GET "/v3/api-docs/swagger-config", parameters={}
+2026-02-22 15:49:46.989 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2026-02-22 15:49:46.992 [http-nio-8080-exec-1] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /v3/api-docs/swagger-config | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:47.156 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [*/*] and supported [application/json]
+2026-02-22 15:49:47.177 [http-nio-8080-exec-1] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8080/swagger-ui/oauth2-re (truncated)...]
+2026-02-22 15:49:47.267 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - GET "/swagger-ui/index.html", parameters={}
+2026-02-22 15:49:47.269 [http-nio-8080-exec-2] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2026-02-22 15:49:47.279 [http-nio-8080-exec-2] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /swagger-ui/index.html | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:47.294 [http-nio-8080-exec-2] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /swagger-ui/index.html | Status: 200 | Tempo: 15ms
+2026-02-22 15:49:47.297 [http-nio-8080-exec-2] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:47.395 [http-nio-8080-exec-1] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /v3/api-docs/swagger-config | Status: 200 | Tempo: 403ms
+2026-02-22 15:49:47.395 [http-nio-8080-exec-1] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:49:47.507 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - GET "/v3/api-docs/1.%20Autentica%C3%A7%C3%A3o%20e%20Registro", parameters={}
+2026-02-22 15:49:47.513 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped to org.springdoc.webmvc.api.MultipleOpenApiWebMvcResource#openapiJson(HttpServletRequest, String, String, Locale)
+2026-02-22 15:49:47.514 [http-nio-8080-exec-5] INFO  c.d.d.config.LoggingInterceptor - ==> Início da Requisição: GET /v3/api-docs/1.%20Autentica%C3%A7%C3%A3o%20e%20Registro | IP: 0:0:0:0:0:0:0:1
+2026-02-22 15:49:52.260 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 4127 ms
+2026-02-22 15:49:52.450 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Using 'application/json', given [application/json, */*] and supported [application/json]
+2026-02-22 15:49:52.454 [http-nio-8080-exec-5] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2026-02-22 15:49:52.574 [http-nio-8080-exec-5] INFO  c.d.d.config.LoggingInterceptor - <== Fim da Requisição: GET /v3/api-docs/1.%20Autentica%C3%A7%C3%A3o%20e%20Registro | Status: 200 | Tempo: 5060ms
+2026-02-22 15:49:52.575 [http-nio-8080-exec-5] DEBUG o.s.web.servlet.DispatcherServlet - Completed 200 OK
+2026-02-22 15:50:13.733 [main] INFO  c.d.d.DeliveryApiApplicationTests - Starting DeliveryApiApplicationTests using Java 21.0.9 with PID 21620 (started by giova in C:\Users\giova\Downloads\TI ARQUITETURA DE SISTEMAS\deliverytech\delivery-api)
+2026-02-22 15:50:13.735 [main] DEBUG c.d.d.DeliveryApiApplicationTests - Running with Spring Boot v3.3.4, Spring v6.1.13
+2026-02-22 15:50:13.737 [main] INFO  c.d.d.DeliveryApiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-02-22 15:50:13.907 [main] DEBUG o.s.w.c.s.GenericWebApplicationContext - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@35ac9ebd
+2026-02-22 15:50:14.056 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-22 15:50:18.867 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-22 15:50:19.175 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 268 ms. Found 6 JPA repository interfaces.
+2026-02-22 15:50:24.048 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-22 15:50:24.230 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-02-22 15:50:24.321 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-22 15:50:25.775 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-22 15:50:25.870 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-22 15:50:27.004 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:deliverydb user=SA
+2026-02-22 15:50:27.011 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-22 15:50:27.310 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-22 15:50:34.341 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-22 15:50:34.439 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists clientes cascade 
+2026-02-22 15:50:34.468 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists itens_pedido cascade 
+2026-02-22 15:50:34.469 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists pedidos cascade 
+2026-02-22 15:50:34.470 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists produtos cascade 
+2026-02-22 15:50:34.470 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists restaurantes cascade 
+2026-02-22 15:50:34.471 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists usuarios cascade 
+2026-02-22 15:50:34.552 [main] DEBUG org.hibernate.SQL - 
+    create table clientes (
+        ativo boolean not null,
+        data_cadastro timestamp(6),
+        id bigint generated by default as identity,
+        email varchar(255) not null unique,
+        endereco varchar(255),
+        nome varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:50:34.653 [main] DEBUG org.hibernate.SQL - 
+    create table itens_pedido (
+        preco_unitario numeric(38,2),
+        quantidade integer,
+        subtotal numeric(38,2),
+        id bigint generated by default as identity,
+        pedido_id bigint,
+        produto_id bigint,
+        primary key (id)
+    )
+2026-02-22 15:50:34.658 [main] DEBUG org.hibernate.SQL - 
+    create table pedidos (
+        taxa_entrega numeric(38,2),
+        valor_total numeric(38,2),
+        cliente_id bigint,
+        data_pedido timestamp(6),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        endereco_entrega varchar(255),
+        numero_pedido varchar(255),
+        status enum ('CANCELADO','CONFIRMADO','ENTREGUE','PENDENTE'),
+        primary key (id)
+    )
+2026-02-22 15:50:34.664 [main] DEBUG org.hibernate.SQL - 
+    create table produtos (
+        disponivel boolean,
+        preco numeric(38,2),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        categoria varchar(255),
+        descricao varchar(255),
+        nome varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:50:34.668 [main] DEBUG org.hibernate.SQL - 
+    create table restaurantes (
+        ativo boolean,
+        avaliacao numeric(38,2),
+        taxa_entrega numeric(38,2),
+        id bigint generated by default as identity,
+        categoria varchar(255),
+        endereco varchar(255),
+        nome varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:50:34.671 [main] DEBUG org.hibernate.SQL - 
+    create table usuarios (
+        ativo boolean,
+        data_criacao timestamp(6),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        email varchar(255) not null unique,
+        nome varchar(255),
+        senha varchar(255) not null,
+        role enum ('ADMIN','CLIENTE','ENTREGADOR','RESTAURANTE'),
+        primary key (id)
+    )
+2026-02-22 15:50:34.674 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists itens_pedido 
+       add constraint FK42mycompce3b7yt3l6ukdwsxy 
+       foreign key (pedido_id) 
+       references pedidos
+2026-02-22 15:50:34.746 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists itens_pedido 
+       add constraint FKxytdlekpdaobqphujy9bmuhl 
+       foreign key (produto_id) 
+       references produtos
+2026-02-22 15:50:34.755 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists pedidos 
+       add constraint FKg7202lk0hwxn04bmdl2thth5b 
+       foreign key (cliente_id) 
+       references clientes
+2026-02-22 15:50:34.764 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists pedidos 
+       add constraint FKf3mf88pcxawf3nt06400qmqn3 
+       foreign key (restaurante_id) 
+       references restaurantes
+2026-02-22 15:50:34.769 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists produtos 
+       add constraint FKsl3jhd8nhd103c5nm6yocnnkx 
+       foreign key (restaurante_id) 
+       references restaurantes
+2026-02-22 15:50:34.792 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-22 15:50:36.994 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-22 15:50:41.186 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2026-02-22 15:50:45.655 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 49 mappings in 'requestMappingHandlerMapping'
+2026-02-22 15:50:46.657 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-02-22 15:50:47.546 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoints beneath base path '/actuator'
+2026-02-22 15:50:49.883 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-02-22 15:50:50.089 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-02-22 15:50:51.008 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:deliverydb'
+2026-02-22 15:50:51.347 [main] INFO  c.d.d.DeliveryApiApplicationTests - Started DeliveryApiApplicationTests in 38.993 seconds (process running for 47.653)
+2026-02-22 15:50:52.603 [main] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.ativo 
+    fetch
+        first ? rows only
+2026-02-22 15:50:52.793 [main] INFO  c.d.delivery_api.config.DataLoader - --- INICIANDO CARGA DE DADOS ---
+2026-02-22 15:50:52.911 [main] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.email=?
+2026-02-22 15:50:53.377 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        clientes
+        (ativo, data_cadastro, email, endereco, nome, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.618 [main] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.email=?
+2026-02-22 15:50:53.620 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        clientes
+        (ativo, data_cadastro, email, endereco, nome, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.631 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.637 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.639 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.718 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.726 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.732 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.734 [main] INFO  c.d.delivery_api.config.DataLoader - --- EXECUTANDO CENÁRIOS DE TESTE (CRIAÇÃO DE PEDIDOS) ---
+2026-02-22 15:50:53.739 [main] WARN  c.d.d.service.PedidoService - [ALERTA-THRESHOLD] Processamento de pedido - Pedido ID null demorou com.deliverytech.delivery_api.model.Pedido@18dc67dems - Verifique gargalos no DB!
+2026-02-22 15:50:53.742 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        pedidos
+        (cliente_id, data_pedido, endereco_entrega, numero_pedido, restaurante_id, status, taxa_entrega, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.758 [main] INFO  c.d.delivery_api.config.DataLoader - Pedido 1 criado: Número 36880763, Total R$ 40.9
+2026-02-22 15:50:53.764 [main] WARN  c.d.d.service.PedidoService - [ALERTA-THRESHOLD] Processamento de pedido - Pedido ID null demorou com.deliverytech.delivery_api.model.Pedido@794c0b91ms - Verifique gargalos no DB!
+2026-02-22 15:50:53.765 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        pedidos
+        (cliente_id, data_pedido, endereco_entrega, numero_pedido, restaurante_id, status, taxa_entrega, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:50:53.767 [main] INFO  c.d.delivery_api.config.DataLoader - Pedido 2 criado: Número E2787A78, Total R$ 53.9
+2026-02-22 15:50:53.768 [main] INFO  c.d.delivery_api.config.DataLoader - --- CARGA E TESTES CONCLUÍDOS COM SUCESSO ---
+2026-02-22 15:51:01.173 [main] INFO  c.d.d.service.PedidoService - [AUDITORIA] Alterando status do pedido ID: 1 para CONFIRMADO
+2026-02-22 15:51:01.173 [main] DEBUG c.d.d.service.PedidoService - [AUDITORIA] Status do pedido 1 atualizado com sucesso no banco.
+2026-02-22 15:51:01.400 [SpringApplicationShutdownHook] DEBUG o.s.w.c.s.GenericWebApplicationContext - Closing org.springframework.web.context.support.GenericWebApplicationContext@35ac9ebd, started on Sun Feb 22 15:50:13 BRT 2026
+2026-02-22 15:51:02.164 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-22 15:51:02.169 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists clientes cascade 
+2026-02-22 15:51:02.175 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists itens_pedido cascade 
+2026-02-22 15:51:02.178 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists pedidos cascade 
+2026-02-22 15:51:02.181 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists produtos cascade 
+2026-02-22 15:51:02.183 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists restaurantes cascade 
+2026-02-22 15:51:02.186 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists usuarios cascade 
+2026-02-22 15:51:02.207 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-22 15:51:02.245 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-22 15:52:25.858 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-22 15:52:25.954 [main] INFO  c.d.d.DeliveryApiApplicationTests - Starting DeliveryApiApplicationTests using Java 21.0.9 with PID 14496 (started by giova in C:\Users\giova\Downloads\TI ARQUITETURA DE SISTEMAS\deliverytech\delivery-api)
+2026-02-22 15:52:25.954 [main] DEBUG c.d.d.DeliveryApiApplicationTests - Running with Spring Boot v3.3.4, Spring v6.1.13
+2026-02-22 15:52:25.955 [main] INFO  c.d.d.DeliveryApiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-02-22 15:52:26.040 [main] DEBUG o.s.w.c.s.GenericWebApplicationContext - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@35ac9ebd
+2026-02-22 15:52:28.854 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-22 15:52:29.023 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 150 ms. Found 6 JPA repository interfaces.
+2026-02-22 15:52:31.508 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-22 15:52:31.678 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-02-22 15:52:31.773 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-22 15:52:32.850 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-22 15:52:32.956 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-22 15:52:33.657 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:deliverydb user=SA
+2026-02-22 15:52:33.661 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-22 15:52:33.764 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-22 15:52:37.294 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-22 15:52:37.375 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists clientes cascade 
+2026-02-22 15:52:37.395 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists itens_pedido cascade 
+2026-02-22 15:52:37.398 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists pedidos cascade 
+2026-02-22 15:52:37.399 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists produtos cascade 
+2026-02-22 15:52:37.400 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists restaurantes cascade 
+2026-02-22 15:52:37.400 [main] DEBUG org.hibernate.SQL - 
+    drop table if exists usuarios cascade 
+2026-02-22 15:52:37.431 [main] DEBUG org.hibernate.SQL - 
+    create table clientes (
+        ativo boolean not null,
+        data_cadastro timestamp(6),
+        id bigint generated by default as identity,
+        email varchar(255) not null unique,
+        endereco varchar(255),
+        nome varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:52:37.516 [main] DEBUG org.hibernate.SQL - 
+    create table itens_pedido (
+        preco_unitario numeric(38,2),
+        quantidade integer,
+        subtotal numeric(38,2),
+        id bigint generated by default as identity,
+        pedido_id bigint,
+        produto_id bigint,
+        primary key (id)
+    )
+2026-02-22 15:52:37.521 [main] DEBUG org.hibernate.SQL - 
+    create table pedidos (
+        taxa_entrega numeric(38,2),
+        valor_total numeric(38,2),
+        cliente_id bigint,
+        data_pedido timestamp(6),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        endereco_entrega varchar(255),
+        numero_pedido varchar(255),
+        status enum ('CANCELADO','CONFIRMADO','ENTREGUE','PENDENTE'),
+        primary key (id)
+    )
+2026-02-22 15:52:37.532 [main] DEBUG org.hibernate.SQL - 
+    create table produtos (
+        disponivel boolean,
+        preco numeric(38,2),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        categoria varchar(255),
+        descricao varchar(255),
+        nome varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:52:37.540 [main] DEBUG org.hibernate.SQL - 
+    create table restaurantes (
+        ativo boolean,
+        avaliacao numeric(38,2),
+        taxa_entrega numeric(38,2),
+        id bigint generated by default as identity,
+        categoria varchar(255),
+        endereco varchar(255),
+        nome varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:52:37.549 [main] DEBUG org.hibernate.SQL - 
+    create table usuarios (
+        ativo boolean,
+        data_criacao timestamp(6),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        email varchar(255) not null unique,
+        nome varchar(255),
+        senha varchar(255) not null,
+        role enum ('ADMIN','CLIENTE','ENTREGADOR','RESTAURANTE'),
+        primary key (id)
+    )
+2026-02-22 15:52:37.555 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists itens_pedido 
+       add constraint FK42mycompce3b7yt3l6ukdwsxy 
+       foreign key (pedido_id) 
+       references pedidos
+2026-02-22 15:52:37.674 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists itens_pedido 
+       add constraint FKxytdlekpdaobqphujy9bmuhl 
+       foreign key (produto_id) 
+       references produtos
+2026-02-22 15:52:37.683 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists pedidos 
+       add constraint FKg7202lk0hwxn04bmdl2thth5b 
+       foreign key (cliente_id) 
+       references clientes
+2026-02-22 15:52:37.691 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists pedidos 
+       add constraint FKf3mf88pcxawf3nt06400qmqn3 
+       foreign key (restaurante_id) 
+       references restaurantes
+2026-02-22 15:52:37.700 [main] DEBUG org.hibernate.SQL - 
+    alter table if exists produtos 
+       add constraint FKsl3jhd8nhd103c5nm6yocnnkx 
+       foreign key (restaurante_id) 
+       references restaurantes
+2026-02-22 15:52:37.754 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-22 15:52:39.134 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-22 15:52:41.703 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2026-02-22 15:52:43.288 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 49 mappings in 'requestMappingHandlerMapping'
+2026-02-22 15:52:43.704 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-02-22 15:52:44.193 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 4 endpoints beneath base path '/actuator'
+2026-02-22 15:52:45.259 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-02-22 15:52:45.450 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-02-22 15:52:46.643 [main] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:deliverydb'
+2026-02-22 15:52:47.015 [main] INFO  c.d.d.DeliveryApiApplicationTests - Started DeliveryApiApplicationTests in 22.822 seconds (process running for 26.787)
+2026-02-22 15:52:47.515 [main] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.ativo 
+    fetch
+        first ? rows only
+2026-02-22 15:52:47.598 [main] INFO  c.d.delivery_api.config.DataLoader - --- INICIANDO CARGA DE DADOS ---
+2026-02-22 15:52:47.617 [main] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.email=?
+2026-02-22 15:52:47.735 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        clientes
+        (ativo, data_cadastro, email, endereco, nome, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.796 [main] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.email=?
+2026-02-22 15:52:47.800 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        clientes
+        (ativo, data_cadastro, email, endereco, nome, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.815 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.827 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.831 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.873 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.888 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.892 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.894 [main] INFO  c.d.delivery_api.config.DataLoader - --- EXECUTANDO CENÁRIOS DE TESTE (CRIAÇÃO DE PEDIDOS) ---
+2026-02-22 15:52:47.902 [main] WARN  c.d.d.service.PedidoService - [ALERTA-THRESHOLD] Processamento de pedido - Pedido ID null demorou com.deliverytech.delivery_api.model.Pedido@195db2e1ms - Verifique gargalos no DB!
+2026-02-22 15:52:47.907 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        pedidos
+        (cliente_id, data_pedido, endereco_entrega, numero_pedido, restaurante_id, status, taxa_entrega, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.937 [main] INFO  c.d.delivery_api.config.DataLoader - Pedido 1 criado: Número E2E1DE2E, Total R$ 40.9
+2026-02-22 15:52:47.942 [main] WARN  c.d.d.service.PedidoService - [ALERTA-THRESHOLD] Processamento de pedido - Pedido ID null demorou com.deliverytech.delivery_api.model.Pedido@42b0319cms - Verifique gargalos no DB!
+2026-02-22 15:52:47.944 [main] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        pedidos
+        (cliente_id, data_pedido, endereco_entrega, numero_pedido, restaurante_id, status, taxa_entrega, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:52:47.948 [main] INFO  c.d.delivery_api.config.DataLoader - Pedido 2 criado: Número 62D5D922, Total R$ 53.9
+2026-02-22 15:52:47.948 [main] INFO  c.d.delivery_api.config.DataLoader - --- CARGA E TESTES CONCLUÍDOS COM SUCESSO ---
+2026-02-22 15:52:51.167 [main] INFO  c.d.d.service.PedidoService - [AUDITORIA] Alterando status do pedido ID: 1 para CONFIRMADO
+2026-02-22 15:52:51.170 [main] DEBUG c.d.d.service.PedidoService - [AUDITORIA] Status do pedido 1 atualizado com sucesso no banco.
+2026-02-22 15:52:51.235 [SpringApplicationShutdownHook] DEBUG o.s.w.c.s.GenericWebApplicationContext - Closing org.springframework.web.context.support.GenericWebApplicationContext@35ac9ebd, started on Sun Feb 22 15:52:26 BRT 2026
+2026-02-22 15:52:51.878 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-22 15:52:51.885 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists clientes cascade 
+2026-02-22 15:52:51.891 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists itens_pedido cascade 
+2026-02-22 15:52:51.896 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists pedidos cascade 
+2026-02-22 15:52:51.899 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists produtos cascade 
+2026-02-22 15:52:51.901 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists restaurantes cascade 
+2026-02-22 15:52:51.902 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists usuarios cascade 
+2026-02-22 15:52:51.915 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-22 15:52:51.937 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
