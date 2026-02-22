@@ -285,7 +285,7 @@ docker-compose down -v
 Os arquivos de configuração estão organizados na pasta `/prometheus`.
 
 ```bash
-Endpoint: locahost:9090/actuator/prometheus
+Endpoint: http://localhost:9090/actuator/prometheus
 ```
 
 ## Subir Prometheus (Bash/Git Bash)
