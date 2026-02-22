@@ -175,5 +175,50 @@ Como a API é protegida por Spring Security, os testes de integração de Contro
 Dica de Desenvolvimento: Antes de realizar um push, sempre execute o "Combo de Qualidade" para garantir que sua alteração não reduziu a cobertura global do projeto para menos de 80%.
 
 
+
+
+
+### Gerenciamento com Docker Compose
+O Docker Compose gerencia a API, o banco MySQL e o cache Redis de forma integrada na mesma rede.
+
+Subir o ambiente completo
+Use este comando para compilar o JAR (ignora erros de Git e trata encoding UTF-8) e subir todos os serviços:
+
+Bash
+* #docker-compose up -d --build
+Parar e remover os serviços
+Para encerrar a execução e remover os containers e redes (mantendo os dados do banco):
+
+Bash
+* #docker-compose down
+Reset total (Limpeza de volumes)
+Caso precise apagar também os dados salvos no MySQL e começar do zero:
+
+Bash
+* #docker-compose down -v
+### Monitoramento com Prometheus
+Os arquivos de configuração estão organizados na pasta /prometheus.
+
+Subir Prometheus isoladamente (via Bash/Git Bash)
+Se precisar rodar apenas o container de monitoramento apontando para as regras locais:
+
+Bash
+* #docker run -d \
+  * #--name delivery-prometheus \
+  * #-p 9090:9090 \
+  * #-v "$(pwd)/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml" \
+  * #-v "$(pwd)/prometheus/alert_rules.yml:/etc/prometheus/alert_rules.yml" \
+  * #prom/prometheus
+  
+Subir Prometheus isoladamente (via PowerShell)
+PowerShell
+* #docker run -d `
+  * #--name delivery-prometheus `
+  * #-p 9090:9090 `
+  * #-v "${PWD}/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml" `
+  * #-v "${PWD}/prometheus/alert_rules.yml:/etc/prometheus/alert_rules.yml" `
+  * #prom/prometheus
+
+
 󰞵 Desenvolvedor
 [Giovanni de Carvalho] - [TURMA 2602] Desenvolvido com JDK 21 e Spring Boot 3.2.x
