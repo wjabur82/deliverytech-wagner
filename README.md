@@ -224,5 +224,22 @@ PowerShell
   * #prom/prometheus
 
 
+
+  ---
+
+## Pipeline de CI/CD (GitHub Actions)
+O projeto utiliza um pipeline automatizado para garantir a qualidade e agilizar o deploy.
+
+### Etapas do Pipeline:
+Build & Test: Compila o projeto usando Java 21 e executa todos os testes unitários e de integração. Gera também o relatório de cobertura de testes com JaCoCo.
+
+Docker Build: Após a aprovação dos testes, o pipeline constrói uma nova imagem Docker da aplicação, garantindo que o artefato final seja portável.
+
+Deploy Automático: Realiza o deploy da imagem em ambiente de homologação sempre que um push é feito na branch main.
+
+###Como monitorar:
+Acesse a aba Actions no seu repositório do GitHub para visualizar a execução em tempo real de cada etapa e os logs de erro, caso ocorram.
+
+
 󰞵 Desenvolvedor
 [Giovanni de Carvalho] - [TURMA 2602] Desenvolvido com JDK 21 e Spring Boot 3.2.x
