@@ -2712,3 +2712,19 @@
         (?, ?, ?, ?, ?, ?, ?, ?, default)
 2026-02-22 15:14:59.550 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - Pedido 2 criado: Número ED5CE7AA, Total R$ 53.9
 2026-02-22 15:14:59.550 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - --- CARGA E TESTES CONCLUÍDOS COM SUCESSO ---
+2026-02-22 15:23:51.594 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-22 15:23:53.302 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists clientes cascade 
+2026-02-22 15:23:53.675 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists itens_pedido cascade 
+2026-02-22 15:23:53.690 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists pedidos cascade 
+2026-02-22 15:23:53.690 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists produtos cascade 
+2026-02-22 15:23:53.690 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists restaurantes cascade 
+2026-02-22 15:23:53.690 [SpringApplicationShutdownHook] DEBUG org.hibernate.SQL - 
+    drop table if exists usuarios cascade 
+2026-02-22 15:23:55.428 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+2026-02-22 15:23:55.436 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-02-22 15:23:55.566 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
