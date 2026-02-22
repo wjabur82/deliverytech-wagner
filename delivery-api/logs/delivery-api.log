@@ -2450,3 +2450,265 @@
 2026-02-22 15:12:30.008 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
 2026-02-22 15:12:30.024 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-02-22 15:12:30.269 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-02-22 15:14:33.936 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2026-02-22 15:14:34.017 [restartedMain] INFO  c.d.d.DeliveryApiApplication - Starting DeliveryApiApplication using Java 21.0.9 with PID 15324 (C:\Users\giova\Downloads\TI ARQUITETURA DE SISTEMAS\deliverytech\delivery-api\target\classes started by giova in C:\Users\giova\Downloads\TI ARQUITETURA DE SISTEMAS\deliverytech\delivery-api)
+2026-02-22 15:14:34.017 [restartedMain] DEBUG c.d.d.DeliveryApiApplication - Running with Spring Boot v3.3.4, Spring v6.1.13
+2026-02-22 15:14:34.017 [restartedMain] INFO  c.d.d.DeliveryApiApplication - No active profile set, falling back to 1 default profile: "default"
+2026-02-22 15:14:34.134 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-22 15:14:34.134 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-22 15:14:38.327 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-22 15:14:38.583 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 233 ms. Found 6 JPA repository interfaces.
+2026-02-22 15:14:42.329 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-02-22 15:14:42.357 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-22 15:14:42.367 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-02-22 15:14:42.368 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+2026-02-22 15:14:42.528 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-02-22 15:14:42.528 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8394 ms
+2026-02-22 15:14:43.511 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-02-22 15:14:43.931 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:deliverydb user=SA
+2026-02-22 15:14:43.942 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-02-22 15:14:43.967 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:deliverydb'
+2026-02-22 15:14:44.628 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-22 15:14:44.841 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-02-22 15:14:44.976 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-02-22 15:14:45.676 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-22 15:14:45.789 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-22 15:14:48.699 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-22 15:14:48.754 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists clientes cascade 
+2026-02-22 15:14:48.768 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists itens_pedido cascade 
+2026-02-22 15:14:48.769 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists pedidos cascade 
+2026-02-22 15:14:48.770 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists produtos cascade 
+2026-02-22 15:14:48.770 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists restaurantes cascade 
+2026-02-22 15:14:48.770 [restartedMain] DEBUG org.hibernate.SQL - 
+    drop table if exists usuarios cascade 
+2026-02-22 15:14:48.782 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table clientes (
+        ativo boolean not null,
+        data_cadastro timestamp(6),
+        id bigint generated by default as identity,
+        email varchar(255) not null unique,
+        endereco varchar(255),
+        nome varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:14:48.814 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table itens_pedido (
+        preco_unitario numeric(38,2),
+        quantidade integer,
+        subtotal numeric(38,2),
+        id bigint generated by default as identity,
+        pedido_id bigint,
+        produto_id bigint,
+        primary key (id)
+    )
+2026-02-22 15:14:48.818 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table pedidos (
+        taxa_entrega numeric(38,2),
+        valor_total numeric(38,2),
+        cliente_id bigint,
+        data_pedido timestamp(6),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        endereco_entrega varchar(255),
+        numero_pedido varchar(255),
+        status enum ('CANCELADO','CONFIRMADO','ENTREGUE','PENDENTE'),
+        primary key (id)
+    )
+2026-02-22 15:14:48.822 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table produtos (
+        disponivel boolean,
+        preco numeric(38,2),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        categoria varchar(255),
+        descricao varchar(255),
+        nome varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:14:48.824 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table restaurantes (
+        ativo boolean,
+        avaliacao numeric(38,2),
+        taxa_entrega numeric(38,2),
+        id bigint generated by default as identity,
+        categoria varchar(255),
+        endereco varchar(255),
+        nome varchar(255),
+        telefone varchar(255),
+        primary key (id)
+    )
+2026-02-22 15:14:48.827 [restartedMain] DEBUG org.hibernate.SQL - 
+    create table usuarios (
+        ativo boolean,
+        data_criacao timestamp(6),
+        id bigint generated by default as identity,
+        restaurante_id bigint,
+        email varchar(255) not null unique,
+        nome varchar(255),
+        senha varchar(255) not null,
+        role enum ('ADMIN','CLIENTE','ENTREGADOR','RESTAURANTE'),
+        primary key (id)
+    )
+2026-02-22 15:14:48.829 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists itens_pedido 
+       add constraint FK42mycompce3b7yt3l6ukdwsxy 
+       foreign key (pedido_id) 
+       references pedidos
+2026-02-22 15:14:48.868 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists itens_pedido 
+       add constraint FKxytdlekpdaobqphujy9bmuhl 
+       foreign key (produto_id) 
+       references produtos
+2026-02-22 15:14:48.872 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists pedidos 
+       add constraint FKg7202lk0hwxn04bmdl2thth5b 
+       foreign key (cliente_id) 
+       references clientes
+2026-02-22 15:14:48.875 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists pedidos 
+       add constraint FKf3mf88pcxawf3nt06400qmqn3 
+       foreign key (restaurante_id) 
+       references restaurantes
+2026-02-22 15:14:48.878 [restartedMain] DEBUG org.hibernate.SQL - 
+    alter table if exists produtos 
+       add constraint FKsl3jhd8nhd103c5nm6yocnnkx 
+       foreign key (restaurante_id) 
+       references restaurantes
+2026-02-22 15:14:48.890 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-22 15:14:50.391 [restartedMain] DEBUG c.d.d.config.SecurityFilter - Filter 'securityFilter' configured for use
+2026-02-22 15:14:50.393 [restartedMain] DEBUG o.s.w.f.ServerHttpObservationFilter - Filter 'webMvcObservationFilter' configured for use
+2026-02-22 15:14:50.625 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-22 15:14:54.030 [restartedMain] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name autenticacaoService
+2026-02-22 15:14:56.063 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 49 mappings in 'requestMappingHandlerMapping'
+2026-02-22 15:14:56.732 [restartedMain] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-02-22 15:14:57.203 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 5 endpoints beneath base path '/actuator'
+2026-02-22 15:14:57.921 [restartedMain] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-02-22 15:14:58.020 [restartedMain] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 2 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-02-22 15:14:58.688 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-02-22 15:14:58.843 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-22 15:14:58.906 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-02-22 15:14:58.936 [restartedMain] INFO  c.d.d.DeliveryApiApplication - Started DeliveryApiApplication in 26.139 seconds (process running for 27.705)
+2026-02-22 15:14:59.247 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.ativo 
+    fetch
+        first ? rows only
+2026-02-22 15:14:59.302 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - --- INICIANDO CARGA DE DADOS ---
+2026-02-22 15:14:59.312 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.email=?
+2026-02-22 15:14:59.405 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        clientes
+        (ativo, data_cadastro, email, endereco, nome, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.458 [restartedMain] DEBUG org.hibernate.SQL - 
+    select
+        c1_0.id,
+        c1_0.ativo,
+        c1_0.data_cadastro,
+        c1_0.email,
+        c1_0.endereco,
+        c1_0.nome,
+        c1_0.telefone 
+    from
+        clientes c1_0 
+    where
+        c1_0.email=?
+2026-02-22 15:14:59.460 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        clientes
+        (ativo, data_cadastro, email, endereco, nome, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.466 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.471 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.474 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        restaurantes
+        (ativo, avaliacao, categoria, endereco, nome, taxa_entrega, telefone, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.503 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.508 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.515 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        produtos
+        (categoria, descricao, disponivel, nome, preco, restaurante_id, id) 
+    values
+        (?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.517 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - --- EXECUTANDO CENÁRIOS DE TESTE (CRIAÇÃO DE PEDIDOS) ---
+2026-02-22 15:14:59.525 [restartedMain] WARN  c.d.d.service.PedidoService - [ALERTA-THRESHOLD] Processamento de pedido - Pedido ID null demorou com.deliverytech.delivery_api.model.Pedido@7005972ms - Verifique gargalos no DB!
+2026-02-22 15:14:59.529 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        pedidos
+        (cliente_id, data_pedido, endereco_entrega, numero_pedido, restaurante_id, status, taxa_entrega, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.539 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - Pedido 1 criado: Número 9467F2F0, Total R$ 40.9
+2026-02-22 15:14:59.547 [restartedMain] WARN  c.d.d.service.PedidoService - [ALERTA-THRESHOLD] Processamento de pedido - Pedido ID null demorou com.deliverytech.delivery_api.model.Pedido@478a0bbdms - Verifique gargalos no DB!
+2026-02-22 15:14:59.550 [restartedMain] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        pedidos
+        (cliente_id, data_pedido, endereco_entrega, numero_pedido, restaurante_id, status, taxa_entrega, valor_total, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, default)
+2026-02-22 15:14:59.550 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - Pedido 2 criado: Número ED5CE7AA, Total R$ 53.9
+2026-02-22 15:14:59.550 [restartedMain] INFO  c.d.delivery_api.config.DataLoader - --- CARGA E TESTES CONCLUÍDOS COM SUCESSO ---
