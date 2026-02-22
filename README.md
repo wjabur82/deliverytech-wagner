@@ -176,7 +176,7 @@ Classes de configuração (config), DTOs, entidades (model) e exceções persona
 ###  Execução Completa (Verificação de Qualidade)
 
 ```bash
-mvn clean test jacoco:report jacoco:check
+mvn clean test jacoco:report 
 ```
 
 ---
