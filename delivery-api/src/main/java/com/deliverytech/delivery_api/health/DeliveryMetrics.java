@@ -3,10 +3,8 @@ package com.deliverytech.delivery_api.health;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import io.micrometer.core.instrument.Gauge;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.concurrent.TimeUnit;
 

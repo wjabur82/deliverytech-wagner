@@ -14,6 +14,8 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -67,6 +69,8 @@ public class ProdutoService {
     }
 
     // buscarProdutoPorId
+    //Cache
+    @Cacheable(value = "produtos", key = "#id")
     public ProdutoResponseDTO buscarProdutoPorId(Long id) {
         Produto produto = produtoRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Produto ID " + id + " não encontrado."));
@@ -80,6 +84,8 @@ public class ProdutoService {
 
     // atualizarProduto
     @Transactional
+    //Cache
+    @CacheEvict(value = "produtos", key = "#id")
     public ProdutoResponseDTO atualizarProduto(Long id, ProdutoRequestDTO dto) {
         logger.info("[AUDITORIA][PRODUTO] Aplicando cupom '{}' no pedido ID: {}", id);
         Produto produtoExistente = produtoRepository.findById(id)
@@ -95,6 +101,11 @@ public class ProdutoService {
         }
 
         return modelMapper.map(produtoRepository.save(produtoExistente), ProdutoResponseDTO.class);
+    }
+
+    //Cache
+    private void simulateSlowService() {
+        try { Thread.sleep(3000L); } catch (InterruptedException e) {}
     }
 
     // alterarDisponibilidade - Toggle disponibilidade
