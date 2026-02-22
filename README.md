@@ -219,6 +219,30 @@ mvn install -Djacoco.skip=true
 
 ---
 
+# Autenticação e Fluxo de Usuário
+A API utiliza segurança baseada em tokens Bearer para proteger os recursos. Abaixo estão os exemplos das requisições principais de acesso:
+
+### Registrar Usuário
+```bash
+Endpoint: POST /api/auth/register
+```
+Payload: Cria um novo usuário com nome, e-mail, senha e atribuição de role (ex: ADMIN).
+Resposta: Retorna os dados do usuário e o status 201 Created.
+
+### Login de Usuário
+```bash
+Endpoint: POST /api/auth/login
+```
+Payload: E-mail e senha cadastrados.
+Resposta: Retorna um token JWT do tipo Bearer com validade de 24 horas.
+
+### Recuperar Perfil (Me)
+```bash
+Endpoint: GET /api/auth/me
+```
+Segurança: Requer o token JWT enviado no Header de autorização.
+Resposta: Retorna os dados do perfil do usuário atualmente autenticado.
+
 ## Autenticação nos Testes
 
 Como a API é protegida por Spring Security, os testes de integração de Controller utilizam a anotação `@WithMockUser` para simular credenciais válidas e evitar erros 403 Forbidden.
@@ -259,6 +283,10 @@ docker-compose down -v
 # Monitoramento com Prometheus
 
 Os arquivos de configuração estão organizados na pasta `/prometheus`.
+
+```bash
+Endpoint: locahost:9090/actuator/prometheus
+```
 
 ## Subir Prometheus (Bash/Git Bash)
 
