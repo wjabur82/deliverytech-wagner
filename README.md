@@ -1,14 +1,10 @@
-Aqui está seu conteúdo organizado e estruturado no formato de um **README.md**, sem alterar nenhuma informação, apenas reorganizando e padronizando a estrutura:
-
----
-
-# 🍔 Delivery Tech API
+# Delivery Tech API
 
 Uma API REST completa para gerenciamento de ecossistemas de delivery, permitindo o controle de clientes, cardápios de restaurantes e o fluxo de processamento de pedidos em tempo real.
 
 ---
 
-# 📌 Tecnologias Utilizadas
+# Tecnologias Utilizadas
 
 * **Java 17/21**: Linguagem base do projeto.
 * **Spring Boot 3**: Framework para construção da aplicação e gestão de dependências.
@@ -19,7 +15,7 @@ Uma API REST completa para gerenciamento de ecossistemas de delivery, permitindo
 
 ---
 
-# 🗄️ Modelo de Dados
+# Modelo de Dados
 
 A API utiliza relacionamentos complexos para garantir a integridade do negócio:
 
@@ -30,7 +26,7 @@ A API utiliza relacionamentos complexos para garantir a integridade do negócio:
 
 ---
 
-# 🏗️ Arquitetura do Projeto
+# Arquitetura do Projeto
 
 O projeto segue o padrão de camadas:
 
@@ -42,9 +38,9 @@ O projeto segue o padrão de camadas:
 
 ---
 
-# 🚀 Configuração e Execução
+#  Configuração e Execução
 
-## ▶️ Como Rodar o Projeto
+## Como Rodar o Projeto
 
 1. Clone o repositório.
 2. Certifique-se de que o Lombok está instalado na sua IDE.
@@ -52,7 +48,7 @@ O projeto segue o padrão de camadas:
 
 O sistema utiliza um **DataLoader automático** que popula o banco de dados H2 ao iniciar.
 
-### ✅ Certifique-se de ter o Maven instalado e execute:
+### Certifique-se de ter o Maven instalado e execute:
 
 ```bash
 ./mvnw spring-boot:run
@@ -66,9 +62,9 @@ http://localhost:8080
 
 ---
 
-# 📚 Endpoints da API
+# Endpoints da API
 
-## 👤 CLIENTE
+## CLIENTE
 
 * `POST /clientes` – Cadastra um novo cliente no sistema.
 * `GET /clientes` – Retorna a lista de todos os clientes com status ativo.
@@ -78,7 +74,7 @@ http://localhost:8080
 
 ---
 
-## 🍽️ RESTAURANTE
+## RESTAURANTE
 
 * `POST /restaurantes` – Cadastra um novo estabelecimento.
 * `GET /restaurantes` – Lista todos os restaurantes cadastrados.
@@ -86,14 +82,14 @@ http://localhost:8080
 
 ---
 
-## 🛍️ PRODUTO
+## PRODUTO
 
 * `POST /produtos` – Adiciona um novo item ao cardápio de um restaurante.
 * `GET /produtos/restaurante/{id}` – Lista todos os produtos vinculados a um restaurante específico.
 
 ---
 
-## 📦 PEDIDO
+## PEDIDO
 
 * `POST /pedidos` – Registra um novo pedido contendo múltiplos itens.
 * `GET /pedidos/cliente/{id}` – Consulta o histórico completo de pedidos de um cliente.
@@ -101,20 +97,20 @@ http://localhost:8080
 
 ---
 
-## 🧾 ITEMPEDIDO
+## ITEMPEDIDO
 
 * `GET /item-pedidos` – Consulta o histórico completo de itens de pedidos.
 * `GET /item-pedidos/pedido{id}` – Busca os detalhes de um item pedido específico pelo seu ID.
 
 ---
 
-## 📊 RELATÓRIO
+## RELATÓRIO
 
 * `GET /relatorio/total-vendas-por-restaurante` – Consulta o histórico total de vendas por restaurantes.
 
 ---
 
-# 🧪 Postman Collection
+# Postman Collection
 
 Para facilitar os testes de integração e validar os fluxos da API:
 
@@ -132,9 +128,9 @@ Para facilitar os testes de integração e validar os fluxos da API:
 
 ---
 
-# 📖 Documentação da API
+# Documentação da API
 
-### 🔎 Swagger UI
+### Swagger UI
 
 ```
 http://localhost:8080/swagger-ui/index.html
@@ -142,7 +138,7 @@ http://localhost:8080/swagger-ui/index.html
 
 (É aqui que você visualiza os botões, testa os endpoints e vê os modelos JSON.)
 
-### 📄 OpenAPI JSON
+### OpenAPI JSON
 
 ```
 http://localhost:8080/v3/api-docs
@@ -152,9 +148,9 @@ http://localhost:8080/v3/api-docs
 
 ---
 
-# 🧪 Guia de Testes e Qualidade
+# Guia de Testes e Qualidade
 
-## 🔬 Tecnologias de Teste Utilizadas
+## Tecnologias de Teste Utilizadas
 
 * **JUnit 5**: Framework base para execução de testes unitários e de integração.
 * **Mockito**: Utilizado para criar dublês de teste (Mocks) em camadas de Service.
@@ -163,21 +159,21 @@ http://localhost:8080/v3/api-docs
 
 ---
 
-## 📈 Cobertura de Código (JaCoCo)
+## Cobertura de Código (JaCoCo)
 
-### 🎯 Meta de Cobertura
+### Meta de Cobertura
 
 * Mínimo de **80% de linhas cobertas**.
 
-### 🚫 Exclusões
+### Exclusões
 
 Classes de configuração (config), DTOs, entidades (model) e exceções personalizadas são excluídas da métrica para focar na lógica de negócio (Services e Controllers).
 
 ---
 
-## 🛠️ Comandos Maven
+## Comandos Maven
 
-### 1️⃣ Execução Completa (Verificação de Qualidade)
+###  Execução Completa (Verificação de Qualidade)
 
 ```bash
 mvn clean test jacoco:report jacoco:check
@@ -185,7 +181,7 @@ mvn clean test jacoco:report jacoco:check
 
 ---
 
-### 2️⃣ Apenas Testes de Integração
+###  Apenas Testes de Integração
 
 ```bash
 mvn test -Dtest=*IT
@@ -193,7 +189,7 @@ mvn test -Dtest=*IT
 
 ---
 
-### 3️⃣ Gerar Relatório Visual
+###  Gerar Relatório Visual
 
 ```bash
 mvn jacoco:report
@@ -207,7 +203,7 @@ target/site/jacoco/index.html
 
 ---
 
-### 4️⃣ Ignorar Verificação de Cobertura
+### Ignorar Verificação de Cobertura
 
 ```bash
 mvn install -Djacoco.skip=true
@@ -215,7 +211,7 @@ mvn install -Djacoco.skip=true
 
 ---
 
-## 📊 Como Analisar o Relatório
+## Como Analisar o Relatório
 
 * 🟢 Verde: Código totalmente coberto por testes.
 * 🟡 Amarelo: Branches parcialmente cobertos.
@@ -223,7 +219,7 @@ mvn install -Djacoco.skip=true
 
 ---
 
-## 🔐 Autenticação nos Testes
+## Autenticação nos Testes
 
 Como a API é protegida por Spring Security, os testes de integração de Controller utilizam a anotação `@WithMockUser` para simular credenciais válidas e evitar erros 403 Forbidden.
 
@@ -232,11 +228,11 @@ Antes de realizar um push, sempre execute o "Combo de Qualidade" para garantir q
 
 ---
 
-# 🐳 Gerenciamento com Docker Compose
+# Gerenciamento com Docker Compose
 
 O Docker Compose gerencia a API, o banco MySQL e o cache Redis de forma integrada na mesma rede.
 
-## 🚀 Subir o ambiente completo
+## Subir o ambiente completo
 
 ```bash
 docker-compose up -d --build
@@ -244,7 +240,7 @@ docker-compose up -d --build
 
 ---
 
-## 🛑 Parar e remover os serviços
+## Parar e remover os serviços
 
 ```bash
 docker-compose down
@@ -252,7 +248,7 @@ docker-compose down
 
 ---
 
-## 🔄 Reset total (Limpeza de volumes)
+## Reset total (Limpeza de volumes)
 
 ```bash
 docker-compose down -v
@@ -260,11 +256,11 @@ docker-compose down -v
 
 ---
 
-# 📡 Monitoramento com Prometheus
+# Monitoramento com Prometheus
 
 Os arquivos de configuração estão organizados na pasta `/prometheus`.
 
-## ▶️ Subir Prometheus (Bash/Git Bash)
+## Subir Prometheus (Bash/Git Bash)
 
 ```bash
 docker run -d \
@@ -277,7 +273,7 @@ docker run -d \
 
 ---
 
-## ▶️ Subir Prometheus (PowerShell)
+## Subir Prometheus (PowerShell)
 
 ```powershell
 docker run -d `
@@ -290,32 +286,32 @@ docker run -d `
 
 ---
 
-# 🔄 Pipeline de CI/CD (GitHub Actions)
+# Pipeline de CI/CD (GitHub Actions)
 
 O projeto utiliza um pipeline automatizado para garantir a qualidade e agilizar o deploy.
 
-## 📌 Etapas do Pipeline
+## Etapas do Pipeline
 
-### 🏗️ Build & Test
+### Build & Test
 
 Compila o projeto usando Java 21 e executa todos os testes unitários e de integração.
 Gera também o relatório de cobertura de testes com JaCoCo.
 
-### 🐳 Docker Build
+### Docker Build
 
 Constrói uma nova imagem Docker da aplicação após a aprovação dos testes.
 
-### 🚀 Deploy Automático
+### Deploy Automático
 
 Realiza o deploy da imagem em ambiente de homologação sempre que um push é feito na branch `main`.
 
-### 👀 Como monitorar
+### Como monitorar
 
 Acesse a aba **Actions** no seu repositório do GitHub para visualizar a execução em tempo real de cada etapa e os logs de erro, caso ocorram.
 
 ---
 
-# 👨‍💻 Desenvolvedor
+# Desenvolvedor
 
 **Giovanni de Carvalho**
 **TURMA 2602**
