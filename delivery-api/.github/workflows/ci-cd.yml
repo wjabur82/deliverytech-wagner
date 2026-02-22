@@ -2,9 +2,9 @@ name: Java CI/CD with Docker
 
 on:
   push:
-    branches: [ "main" ] # Gatilho: Executa ao fazer push na main
+    branches: [ "main", "master" ] # Gatilho: Executa ao fazer push na main
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "master" ]
 
 jobs:
   build-and-test:
