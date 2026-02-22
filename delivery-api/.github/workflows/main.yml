@@ -2,13 +2,18 @@ name: Java CI/CD with Docker
 
 on:
   push:
-    branches: [ "main", "master" ] # Gatilho: Executa ao fazer push na main
+    branches: [ "main", "master" ]
   pull_request:
     branches: [ "main", "master" ]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    # Define que todos os passos deste job rodam dentro da pasta da API
+    defaults:
+      run:
+        working-directory: ./delivery-api
+
     steps:
       - uses: actions/checkout@v4
 
@@ -20,7 +25,6 @@ jobs:
           cache: maven
 
       - name: Build and Test with Maven
-        # Executa testes unitários e build do JAR
         run: mvn clean package -Dmaven.gitcommitid.skip=true
 
       - name: Generate JaCoCo Report
@@ -29,20 +33,22 @@ jobs:
   docker-build:
     needs: build-and-test
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./delivery-api
+
     steps:
       - uses: actions/checkout@v4
 
       - name: Build Docker Image
-        # Constrói a imagem baseada no seu Dockerfile
+        # O ponto (.) no final indica o contexto do build dentro de delivery-api
         run: docker build -t delivery-api:${{ github.sha }} .
 
   deploy-homolog:
     needs: docker-build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master' # Ajustado para sua branch atual
     steps:
       - name: Deploy to Staging
-        # Simulação de deploy automático
         run: |
           echo "Realizando deploy automático em ambiente de homologação..."
-          echo "Validando saúde da aplicação via /actuator/health"
