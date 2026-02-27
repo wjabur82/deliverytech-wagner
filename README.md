@@ -341,6 +341,6 @@ Acesse a aba **Actions** no seu repositório do GitHub para visualizar a execuç
 
 # Desenvolvedor
 
-**Giovanni de Carvalho**
+**Wagner Jabur Junior**
 **TURMA 2602**
 Desenvolvido com **JDK 21** e **Spring Boot 3.2.x**
